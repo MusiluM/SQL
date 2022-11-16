@@ -1,0 +1,33 @@
+--Create a wig store database 
+
+/** Store:
+Hot comb (2)
+Hair straightner (3)
+13x4 lace front wig (5)
+13x6 lace front wig (1)
+360 lace front wig (4)
+**/
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, popularity INTEGER);
+
+INSERT INTO store VALUES (1, "Hot comb", 14.00,85);
+INSERT INTO store VALUES (2, "Hair sraightner", 50.00,90);
+INSERT INTO store VALUES (3, "13x4 lace front wig",250.00,90);
+INSERT INTO store VALUES (4, "13x6 lace front wig",285.00,90);
+INSERT INTO store VALUES (5, "360 lace front wig", 320.00,80);
+INSERT INTO store VALUES (6, "4x4 lace front wig", 100.00, 50);
+INSERT INTO store VALUES (7, "6x6 lace front wig", 120.00, 55);
+INSERT INTO store VALUES (8, "Wig glue", 25.00, 80);
+INSERT INTO store VALUES (9, "Wax stick", 15.00, 95);
+INSERT INTO store VALUES (10, "Lace band", 5.00, 45);
+INSERT INTO store VALUES (11, "Glue remover", 10.00, 80);
+INSERT INTO store VALUES (12, "Lace tint", 15.00, 60);
+INSERT INTO store VALUES (13, "Edge brush", 5.00, 30);
+INSERT INTO store VALUES (14, "Edge gel", 8.00, 40);
+INSERT INTO store VALUES (15, "Curling iron", 50.00, 60);
+
+SELECT * FROM store;
+
+--what are the most 5 popular items?
+SELECT item, price, popularity FROM store order by popularity desc limit 5;
+
