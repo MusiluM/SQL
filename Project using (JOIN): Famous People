@@ -1,0 +1,40 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE singers (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, song TEXT, hometown TEXT);
+
+INSERT INTO singers (name,song,hometown) VALUES ("Chris Brown", "Ya man ain't me", "Virginia");
+INSERT INTO singers (name,song,hometown) VALUES ("Lil Baby", "California Breeze", "Atlanta");
+INSERT INTO singers (name,song,hometown) VALUES ("Rema", "Calm Down", "Nigeria");
+INSERT INTO singers (name,song,hometown) VALUES ("Shania Twain", "It Only Hurts When Im Breathing", "California");
+
+
+CREATE TABLE genre (id INTEGER PRIMARY KEY, singer_id INTEGER, title TEXT);
+
+INSERT INTO genre (singer_id,title) VALUES (1, "RNB");
+INSERT INTO genre (singer_id, title) VALUES (2, "RAP");
+INSERT INTO genre (singer_id, title) VALUES (3, "Afro_Beats");
+INSERT INTO genre (singer_id, title) VALUES (4, "POP");
+
+
+CREATE TABLE project_pairs (id INTEGER PRIMARY KEY, project1_id INTEGER, project2_id INTEGER);
+
+INSERT INTO project_pairs (project1_id, project2_id) VALUES (1,2);
+INSERT INTO project_pairs (project1_id, project2_id) VALUES (3,4);
+
+/*Use JOIN to display a table showing singers names and their genre*/
+
+
+SELECT s.name,g.title
+FROM singers s
+JOIN genre g
+ON s.id=g.singer_id;
+
+/*Now use another select with a JOIN to show the names of each pair of singer's based on the data in the project_pairs table*/
+
+SELECT a.name,b.name
+FROM project_pairs
+JOIN singers a
+ON project_pairs.project1_id=a.id
+JOIN singers b
+ON project_pairs.project2_id=b.id;
+
